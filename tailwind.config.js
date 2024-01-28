@@ -11,6 +11,9 @@ export default {
         monospace: ["Inconsolata", "monospace"]
 
     },
+    screens: {
+      'xs': '100px',  
+    },
   },
   plugins: [],
 }
