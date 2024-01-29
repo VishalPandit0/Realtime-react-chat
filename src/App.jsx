@@ -2,7 +2,7 @@ import React from "react"
 import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Chatbox from "./Components/Chatbox";
-import Welcome from "./Components/welcome";
+import Welcome from "./Components/Welcome";
 
 
 function App() {
