@@ -34,7 +34,7 @@ const Messagebox = () => {
     <img src={add} className='h-[2rem] w-[2rem] ml-4 mr-1 hover:transform hover:scale-110' alt="" />
     </button>
     <input className='p-4 w-[70vw] md:w-[60vw] sm:w-[50vw] outline-none border-0  bg-[#292b2a] text-white ' id="messageInput" name="messageInput" type="text" placeholder=" Message...  "
-    value={message} onChange={(e) => setMessage(e.target.value)} />
+    value={message} onChange={(e) => setMessage(e.target.value)} autocomplete="off"/>
 
     <button type='submit' className=' border-0 rounded-r-full bg-[#292b2a]'>
     <img src={send} className='h-[2rem] w-[2rem] mr-4 invert hover:transform hover:scale-110 ' alt="" />
