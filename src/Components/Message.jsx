@@ -17,7 +17,7 @@ const Message = ({ message }) => {
         {!isCurrentUser && (
           <img className="h-10 w-10 border-0 rounded-full" src={message.avatar} alt="user avatar" />
         )}
-        <p className={`bg-[#292b2a] text-white border-0 rounded-full p-3 ${isCurrentUser ? 'ml-auto' : ''}`}>{message.text}</p>
+        <p className={`bg-[#292b2a] text-white border-0 rounded-full p-3 ${isCurrentUser ? 'ml-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ' : ''}`}>{message.text}</p>
       </div>
       
 
