@@ -11,9 +11,12 @@ import { db, auth } from "../../firebase";
 import Messagebox from './Messagebox'
 import Message from "./Message";
 
+
 const Chatbox = () => {
   const [messages, setMessages] = useState([]);
+  const [scrolled, setScrolled] = useState(false)
   const scroll = useRef();
+
 
   useEffect(() => {
     const q = query(
@@ -43,6 +46,22 @@ const Chatbox = () => {
     scroll.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 0) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
 
     <div className='bg-[#0b0f0d] min-h-screen flex flex-col'>
@@ -57,7 +76,7 @@ const Chatbox = () => {
         ))}
         <span ref={scroll}></span>
       </div>
-      <footer className='mt-auto mb-3 font-monospace w-full flex justify-center'>
+      <footer className={`mt-auto mb-3 font-monospace w-full flex justify-center ${scrolled ? 'sticky bottom-0 z-50' : ''}`}>
         <Messagebox />
       </footer>
     </div>

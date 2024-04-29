@@ -17,7 +17,12 @@ const Message = ({ message }) => {
         {!isCurrentUser && (
           <img className="h-10 w-10 border-0 rounded-full" src={message.avatar} alt="user avatar" />
         )}
-        <p className={`bg-[#292b2a] text-white border-0 rounded-full p-3 ${isCurrentUser ? 'ml-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ' : ''}`}>{message.text}</p>
+        {
+          message.imageUrl?(<img className={`max-h-60 bg-[#292b2a] text-white border-0 rounded-md p-3 ${isCurrentUser ? 'ml-auto ' : ''}`} src={message.imageUrl}/>)
+          :
+          (<p className={`bg-[#292b2a] text-white border-0 rounded-full p-3 ${isCurrentUser ? 'ml-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ' : ''}`}>{message.text}</p>)
+        }
+        
       </div>
       
 
